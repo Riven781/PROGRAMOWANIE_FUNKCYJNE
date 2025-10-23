@@ -64,7 +64,25 @@ object Zadanie1 extends cask.MainRoutes{
   }
 
 
-  
+  /*
+  4.0 Zaimplementuj funkcję setHead, która doda element na początku
+  listy
+  */
+
+  @cask.postJson("/setHead")
+  def setHeadRequest(list: List[Int], value: Int) = {
+    ujson.Obj(
+      "listWithNewHead" -> setHead(list, value)
+    )
+  }
+
+  def setHead(list: List[Int], value: Int) : List[Int] = {
+    value :: list
+  }
+
+
+
+
   override def host: String = "0.0.0.0"
   initialize()
 }
