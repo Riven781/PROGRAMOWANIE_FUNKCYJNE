@@ -80,7 +80,29 @@ object Zadanie1 extends cask.MainRoutes{
     value :: list
   }
 
+  /*
+  4.5 Zaimplementuj funkcję append, która doda element we wskazanym
+  miejscu w liście
+  */
 
+  @cask.postJson("/append")
+  def appendRequest(list: List[Int], value: Int, index: Int) = {
+    ujson.Obj(
+      "listWithNewElement" -> append(list, value, index)
+    )
+  }
+
+  def append(list: List[Int], value: Int, index: Int) : List[Int] = {
+    if (index == 0 || list.isEmpty) {
+      value :: list
+    }
+    else{
+      list.head :: append(list.tail, value, index - 1)
+    } 
+  }
+
+
+ 
 
 
   override def host: String = "0.0.0.0"
