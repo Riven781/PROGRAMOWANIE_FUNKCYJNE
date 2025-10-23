@@ -102,7 +102,23 @@ object Zadanie1 extends cask.MainRoutes{
   }
 
 
- 
+  /*
+  5.0 Zaimplementuj funkcję, która policzy kwadrat liczb z dwóch list
+  (po wierszach) za pomocą funkcji map oraz funkcji anonimowej
+  */
+
+  @cask.postJson("/squareLists")
+  def squareListsRequest(list1: List[Int], list2: List[Int]) = {
+    ujson.Obj(
+      "squareLists" -> squareLists(list1, list2)
+    )
+  }
+
+
+  def squareLists(list1: List[Int], list2: List[Int]) : List[Int] = {
+    list1.zip(list2).map(x => x._1 * x._1 + x._2 * x._2)
+    //list1.map(x => x * x) ++ list2.map(x => x * x)
+  }
 
 
   override def host: String = "0.0.0.0"
