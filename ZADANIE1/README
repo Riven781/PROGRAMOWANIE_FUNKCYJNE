@@ -1,6 +1,6 @@
 ZADANIE 1  Wprowadzenie do programowania funkcyjnego
 
-✅  3.0 Zaimplementuj funkcję isSorted, która sprawdza czy dana funkcja  https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/ 264fa2a3ff771b91b77d90d78ca20426e86de625
+✅  3.0 Zaimplementuj funkcję isSorted, która sprawdza czy dana funkcja  https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/264fa2a3ff771b91b77d90d78ca20426e86de625
 jest posortowana zgodnie z podaną funkcją porównawczą
 ✅  3.5 Zaimplementuj funkcję, która zsumuje liczby po wierszach z trzech
 list na wejściu; wykorzystaj funkcję sprowadzi funkcję z trzema
