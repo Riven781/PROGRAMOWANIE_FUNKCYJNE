@@ -6,6 +6,8 @@ ZADANIE 1  Wprowadzenie do programowania funkcyjnego
 #### ✅  4.5 Zaimplementuj funkcję append, która doda element we wskazanym miejscu w liście  https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/b2459bf
 #### ✅  5.0 Zaimplementuj funkcję, która policzy kwadrat liczb z dwóch list (po wierszach) za pomocą funkcji map oraz funkcji anonimowej https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/0060a16
 
+## Link do kodu z zadania 1: https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/blob/main/ZADANIE1/src/main/scala/app/Zadanie1.scala
+
 ## 🎬 VIDEO
 
 
