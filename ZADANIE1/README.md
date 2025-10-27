@@ -4,12 +4,19 @@ ZADANIE 1  Wprowadzenie do programowania funkcyjnego
 #### ✅  3.5 Zaimplementuj funkcję, która zsumuje liczby po wierszach z trzech list na wejściu; wykorzystaj funkcję sprowadzi funkcję z trzema argumentami, do funkcji z dwoma  https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/7d9d4de
 #### ✅  4.0 Zaimplementuj funkcję setHead, która doda element na początku listy https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/65ac8a1
 #### ✅  4.5 Zaimplementuj funkcję append, która doda element we wskazanym miejscu w liście  https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/b2459bf
-#### ✅  5.0 Zaimplementuj funkcję, która policzy kwadrat liczb z dwóch list (po wierszach) za pomocą funkcji map oraz funkcji anonimowej https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/264fa2a
+#### ✅  5.0 Zaimplementuj funkcję, która policzy kwadrat liczb z dwóch list (po wierszach) za pomocą funkcji map oraz funkcji anonimowej https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/0060a16
 
 ## 🎬 VIDEO
 
 ### 3.0
-![Zadanie na 3.0](task3.0.gif)
+
+<video src="https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/releases/download/videos/task3.0.mp4"
+       controls
+       width="640"
+       preload="none">
+  Twoja przeglądarka nie obsługuje elementu video.
+</video>
+
 
 ### 3.5
 ![Zadanie na 3.5](task3.5.gif)
