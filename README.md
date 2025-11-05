@@ -39,8 +39,8 @@ https://github.com/user-attachments/assets/d92ddddc-0f07-4182-ba69-22c4ddc7debc
 
 
 ZADANIE 2 Obraz DOCKEROWY
-Link do DockerHub:  https://hub.docker.com/r/riven781/fp_task
-Link do dokumentu Dockerfile: https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/blob/main/Dockerfile
+#### Link do DockerHub:  https://hub.docker.com/r/riven781/fp_task
+#### Link do dokumentu Dockerfile: https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/blob/main/Dockerfile
 
 ## 🎬 VIDEO
 
