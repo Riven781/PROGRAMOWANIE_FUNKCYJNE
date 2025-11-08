@@ -45,3 +45,12 @@ ZADANIE 2 Obraz DOCKEROWY
 ## 🎬 VIDEO
 
 https://github.com/user-attachments/assets/ab198e5f-a96f-48c9-a471-a4ddf62152d5
+
+ZADANIE 3
+#### ✅ 3.0 zwrócą wynik funkcji tail, która usuwa pierwszy element z listy (parameter); należy rozważyć przypadek Nil jako parametr [Link do commita 3.0](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/8bb9bff)
+#### ✅ 3.5 zwróci wynik funkcji drop, która usuwa n elementów z listy dwukierunkowej [Link do commita 3.5](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/de82db7)
+#### ✅ 4.0 zwróci wynik funkcji dropWhile, która usuwa n elementów z listy dwukierunkowej, które spełniają warunek funkcji (parametr); należy wykorzystać podejście pattern match [Link do commita 4.0](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/8bc3ce6)
+#### ✅ 4.5 zwróci wynik funkcji foldLeft wykorzystując do tego companion object [Link do commita 4.5](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/fe81d6d)
+#### ✅ 5.0 zwróci wynik funkcji concatenate na dwóch listach (parametry), która zwraca jedną listę [Link do commita 4.5](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/2ea7560)
+
+#### Link do kodu z zadania 3 (są w nim endpointy z zadania1 i z zadania3): https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/blob/main/ZADANIE1/src/main/scala/app/Zadanie1.scala
