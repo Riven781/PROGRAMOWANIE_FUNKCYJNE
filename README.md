@@ -54,3 +54,28 @@ ZADANIE 3
 #### ✅ 5.0 zwróci wynik funkcji concatenate na dwóch listach (parametry), która zwraca jedną listę [Link do commita 5.0](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/2ea7560)
 
 #### Link do kodu z zadania 3 (są w nim endpointy z zadania1 i z zadania3): https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/blob/main/ZADANIE1/src/main/scala/app/Zadanie1.scala
+
+
+## 🎬 VIDEO
+
+### 3.0
+
+https://github.com/user-attachments/assets/eb7ba73e-6b9b-4486-b2ed-a49c2250a1e1
+
+
+
+### 3.5
+
+https://github.com/user-attachments/assets/50b0eeb0-fde5-44cf-98ab-4b4d04852dec
+
+### 4.0
+
+
+https://github.com/user-attachments/assets/5a0f0bf0-e8a2-4446-b39b-bc75cfa84344
+### 4.5
+
+
+https://github.com/user-attachments/assets/b5fd0f9b-ae9d-4fc4-943d-28d761435497
+
+### 5.0
+https://github.com/user-attachments/assets/cc35be48-e813-405a-adb8-1392493f02d4
