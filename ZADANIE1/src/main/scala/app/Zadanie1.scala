@@ -128,10 +128,16 @@ object Zadanie1 extends cask.MainRoutes{
 
 
   object Lista{
-  def apply[A](as: A*): Lista[A] =
-    if (as.isEmpty) Nil
-    else Node(as.head, apply(as.tail: _*))
+    def apply[A](as: A*): Lista[A] =
+      if (as.isEmpty) Nil
+      else Node(as.head, apply(as.tail: _*))
 
+    
+    //A to typ elementów listy a B to typ akumulatora
+    def foldLeft[A, B](lista: Lista[A], acc: B, f: (B, A) => B) : B =
+      lista match
+        case Nil => acc
+        case node : Node[A] => foldLeft(node.tail, f(acc, node.head), f)
   }
 
 
@@ -235,6 +241,25 @@ object Zadanie1 extends cask.MainRoutes{
     dLista match
       case DNil => DNil
       case node : DNode[Int] => if (f(node.value)) dropWhile(node.next, f) else node
+
+  /*
+  4.5 zwróci wynik funkcji foldLeft wykorzystując do tego companion
+  object
+  */
+
+  @cask.postJson("/foldLeft")
+  def foldLeftRequest(list: List[Int], option: String) = {
+    val lista = fromScalaList(list)
+    val result = option match
+      case "sum" => Lista.foldLeft(lista, 0, _ + _)
+      case "product" => Lista.foldLeft(lista, 1, _ * _)
+      case _ => 0
+    
+    
+    ujson.Obj(
+      "result" -> result
+    )
+  }
 
 
 
