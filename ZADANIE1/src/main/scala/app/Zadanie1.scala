@@ -127,6 +127,27 @@ object Zadanie1 extends cask.MainRoutes{
 
 
 
+  /*
+  3.0 zwrócą wynik funkcji tail, która usuwa pierwszy element z listy
+  (parameter); należy rozważyć przypadek Nil jako parametr
+  */
+
+  @cask.postJson("/tail")
+  def tailRequest(list: List[Int]) = {
+    val lista = fromScalaList(list)
+    val result = tail(lista)
+    
+    ujson.Obj(
+      "tail" -> toScalaList(result)
+    )
+  }
+
+  def tail[A](lista: Lista[A]) : Lista[A] =
+    lista match
+      case Nil => Nil
+      case Node(_,tail_list) => tail_list
+
+  
 
 
 
