@@ -218,29 +218,6 @@ object Zadanie1 extends cask.MainRoutes{
         case DNil => DNil
         case DNode(_, next, _) => drop(next, n - 1)
 
-  /*
-  4.0 zwróci wynik funkcji dropWhile, która usuwa n elementów z listy
-  dwukierunkowej, które spełniają warunek funkcji (parametr); należy
-  wykorzystać podejście pattern match
-  */
-
-  @cask.postJson("/dropWhile")
-  def dropWhileRequest(list: List[Int], option: String) = {
-    val lista = fromScalaListD(list)
-    val result = option match
-      case "even" => dropWhile(lista, _ % 2 == 0)
-      case "odd" => dropWhile(lista, _ % 2 != 0)
-      case _ => DNil
-    
-    ujson.Obj(
-      "resultList" -> toScalaListD(result)
-    )
-  }
-
-  def dropWhile[A](dLista: DLista[A], f: A => Boolean): DLista[A] =
-    dLista match
-      case DNil => DNil
-      case node : DNode[Int] => if (f(node.value)) dropWhile(node.next, f) else node
 
   /*
   4.5 zwróci wynik funkcji foldLeft wykorzystując do tego companion
