@@ -122,6 +122,58 @@ object Zadanie1 extends cask.MainRoutes{
 
   //ZADANIE 3
 
+  sealed trait Lista[+A]
+  case object Nil extends Lista[Nothing]
+  case class Node[+A](head: A, tail: Lista[A]) extends  Lista[A]
+
+  object Lista{
+    def apply[A](as: A*): Lista[A] =
+      if (as.isEmpty) Nil
+      else Node(as.head, apply(as.tail: _*))
+
+
+
+
+  }
+
+
+
+  def toScalaList[A](l: Lista[A]) : List[A] = l match
+    case Nil => scala.Nil
+    case Node(head, tail) => head :: toScalaList(tail)
+
+  def fromScalaList[A](l: List[A]) : Lista[A] = l match
+    case scala.Nil => Nil
+    case head :: tail => Node(head, fromScalaList(tail))
+
+  def fromScalaListD[A](l: List[A]) : DLista[A] = DLista(l: _*)
+
+  def toScalaListD[A](l: DLista[A]) : List[A] = l match
+    case DNil => scala.Nil
+    case DNode(prev, next, value) => value :: toScalaListD(next)
+
+
+
+
+  /*
+  3.0 zwrócą wynik funkcji tail, która usuwa pierwszy element z listy
+  (parameter); należy rozważyć przypadek Nil jako parametr
+  */
+
+  @cask.postJson("/tail")
+  def tailRequest(list: List[Int]) = {
+    val lista = fromScalaList(list)
+    val result = tail(lista)
+    
+    ujson.Obj(
+      "tail" -> toScalaList(result)
+    )
+  }
+
+  def tail[A](lista: Lista[A]) : Lista[A] =
+    lista match
+      case Nil => Nil
+      case Node(_,tail_list) => tail_list
 
   
 
