@@ -123,53 +123,11 @@ object Zadanie1 extends cask.MainRoutes{
   //ZADANIE 3
 
 
-
-
-
-
-  /*
-  3.0 zwrócą wynik funkcji tail, która usuwa pierwszy element z listy
-  (parameter); należy rozważyć przypadek Nil jako parametr
-  */
-
-  @cask.postJson("/tail")
-  def tailRequest(list: List[Int]) = {
-    val lista = fromScalaList(list)
-    val result = tail(lista)
-    
-    ujson.Obj(
-      "tail" -> toScalaList(result)
-    )
-  }
-
-  def tail[A](lista: Lista[A]) : Lista[A] =
-    lista match
-      case Nil => Nil
-      case Node(_,tail_list) => tail_list
-
   
 
-  /*
-  3.5 zwróci wynik funkcji drop, która usuwa n elementów z listy
-  dwukierunkowej*/
-  @cask.postJson("/drop")
-  def dropRequest(list: List[Int], n: Int) = {
-    val lista = fromScalaListD(list)
-    val result = drop(lista, n)
-    
-    ujson.Obj(
-      "resultList" -> toScalaListD(result)
-    )
-  }
 
-  def drop[A](dLista: DLista[A], n : Int) : DLista[A]=
-    if (n <= 0) dLista
-    else
-      dLista match
-        case DNil => DNil
-        case DNode(_, next, _) => drop(next, n - 1)
 
-  
+
     
 
   override def host: String = "0.0.0.0"
