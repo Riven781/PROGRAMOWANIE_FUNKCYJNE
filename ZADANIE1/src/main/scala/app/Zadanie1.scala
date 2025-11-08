@@ -134,6 +134,35 @@ object Zadanie1 extends cask.MainRoutes{
 
   }
 
+
+  sealed trait DLista[+A]
+  case object DNil extends DLista[Nothing]
+  case class DNode[A](val prev: DLista[A], var next: DLista[A], val value: A) extends DLista[A]
+
+  
+  object DLista {
+    def apply[A](as: A*): DLista[A] =
+      if (as.isEmpty) DNil
+      else build(DNil, as.toList)
+
+    private def build[A](prev: DLista[A], tail: List[A]): DNode[A] = tail match {
+      case h :: scala.Nil =>
+        DNode(prev, DNil, h)
+      case h :: t =>
+        val current = DNode(prev, DNil, h)
+        val next  = build(current, t)
+        current.next = next
+        current
+    }
+  }
+
+
+  def fromScalaListD[A](l: List[A]) : DLista[A] = DLista(l: _*)
+
+  def toScalaListD[A](l: DLista[A]) : List[A] = l match
+    case DNil => scala.Nil
+    case DNode(prev, next, value) => value :: toScalaListD(next)
+
   
   def toScalaList[A](l: Lista[A]) : List[A] = l match
     case Nil => scala.Nil
@@ -162,6 +191,27 @@ object Zadanie1 extends cask.MainRoutes{
     lista match
       case Nil => Nil
       case Node(_,tail_list) => tail_list
+
+  /*
+  3.5 zwróci wynik funkcji drop, która usuwa n elementów z listy
+  dwukierunkowej*/
+  @cask.postJson("/drop")
+  def dropRequest(list: List[Int], n: Int) = {
+    val lista = fromScalaListD(list)
+    val result = drop(lista, n)
+    
+    ujson.Obj(
+      "resultList" -> toScalaListD(result)
+    )
+  }
+
+  def drop[A](dLista: DLista[A], n : Int) : DLista[A]=
+    if (n <= 0) dLista
+    else
+      dLista match
+        case DNil => DNil
+        case DNode(_, next, _) => drop(next, n - 1)
+
 
 
 
