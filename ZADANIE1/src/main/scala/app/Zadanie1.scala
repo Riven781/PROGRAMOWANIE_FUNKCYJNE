@@ -261,6 +261,27 @@ object Zadanie1 extends cask.MainRoutes{
     )
   }
 
+  /*
+  5.0 zwróci wynik funkcji concatenate na dwóch listach (parametry),
+  która zwraca jedną listę
+  */
+
+  @cask.postJson("/concatenate")
+  def concatenateRequest(list1: List[Int], list2: List[Int]) = {
+    val lista1 = fromScalaList(list1)
+    val lista2 = fromScalaList(list2)
+    val result = concatenate(lista1, lista2)
+    
+    
+    ujson.Obj(
+      "result" -> toScalaList(result)
+    )
+  }
+
+  def concatenate(lista1: Lista[Int], lista2: Lista[Int]) : Lista[Int] =
+    lista1 match
+      case Nil => lista2
+      case Node(head, tail) => Node(head, concatenate(tail, lista2))
 
 
 
