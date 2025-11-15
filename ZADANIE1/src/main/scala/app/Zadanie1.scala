@@ -341,6 +341,29 @@ object Zadanie1 extends cask.MainRoutes{
         val variance = list.map(x => (x - mean) * (x - mean)).sum / length
         Some(variance)
 
+  /*
+  4.0 zwróci listę (option), która jest wynikiem połączenia dwóch list
+  (option); w przypadku gdy jedna z list jest None, funkcja powinna
+  zwrócić None
+  */
+
+  @cask.postJson("/concatenateOptional")
+  def concatenateOptionalRequest(list1: List[Int], list2: List[Int]) = {
+    val result = concatenateOptional(list1, list2)
+    result match 
+      case Some(x) => ujson.Obj(
+        "List" -> x
+      )
+      case None => ujson.Obj(
+        "message" -> "List is empty"
+      )
+  }
+
+  def concatenateOptional(list: List[Int], list2: List[Int]): Option[List[Int]] =
+    if (list.isEmpty || list2.isEmpty) None
+    else Some(list ++ list2)
+
+
 
 
 
