@@ -395,6 +395,31 @@ object Zadanie1 extends cask.MainRoutes{
 
 
 
+  /*
+  5.0 zwróci taki średnią (mean) z listy zwracając Either
+  */
+
+  @cask.postJson("/mean")
+  def meanRequest(list: List[Int]) = {
+    
+    val result = getMean(list)
+    result match 
+      case Right(x) => ujson.Obj(
+        "Mean" -> x
+      )
+      case Left(x) => ujson.Obj(
+        "message" -> x
+      )
+  }
+
+  def getMean(list: List[Int]) : Either[String, Double] = 
+    if (list.isEmpty) Left("List is empty")
+    else Right(list.sum / list.length.toDouble)
+
+
+
+
+
 
 
 
