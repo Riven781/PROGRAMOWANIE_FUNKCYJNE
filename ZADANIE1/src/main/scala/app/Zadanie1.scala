@@ -284,6 +284,37 @@ object Zadanie1 extends cask.MainRoutes{
       case Node(head, tail) => Node(head, concatenate(tail, lista2))
 
 
+  //ZADANIE 4
+
+  /*
+  3.0 zwróci taki sam wynik jak zad.1 4.5 ale wykorzysta typ opcjonalny
+  */
+
+  @cask.postJson("/appendOptional")
+  def appendRequestOptoional(list: List[Int], value: Int, index: Int) = {
+    val result = appendOptional(list, value, index)
+    result match
+      case Some(x) => ujson.Obj(
+        "listWithNewElement" -> x
+      )
+      case None => ujson.Obj(
+        "message" -> "Index < 0"
+      )
+  }
+
+  def appendOptional(list: List[Int], value: Int, index: Int) : Option[List[Int]] = {  //None wtedy gdy indeks jest ujemny, gdy jest wiekszy od dlugosci listy to na koniec dajemy wartosc
+    if index < 0 then None
+    else 
+      if (index == 0 || list.isEmpty) {
+        Some(value :: list)
+      }
+      else{
+        appendOptional(list.tail, value, index - 1).map(t => list.head :: t)
+      } 
+  }
+
+
+
 
 
 
