@@ -314,6 +314,35 @@ object Zadanie1 extends cask.MainRoutes{
   }
 
 
+  /*
+  3.5 zwroci wariancję z listy; do implementacji wykorzystać należy typ
+  opcjonalny
+  */
+
+  @cask.postJson("/variance")
+  def varianceRequest(list: List[Int]) = {
+    val result = variance(list)
+    result match 
+      case Some(x) => ujson.Obj(
+        "variance" -> x
+      )
+      case None => ujson.Obj(
+        "message" -> "List is empty"
+      )
+
+  }
+
+  def variance(list: List[Int]) : Option[Double] = 
+    list match
+      case scala.Nil => None
+      case _ => 
+        val length = list.length.toDouble
+        val mean = list.sum / length
+        val variance = list.map(x => (x - mean) * (x - mean)).sum / length
+        Some(variance)
+
+
+
 
 
 
