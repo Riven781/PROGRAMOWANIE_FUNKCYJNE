@@ -363,6 +363,36 @@ object Zadanie1 extends cask.MainRoutes{
     if (list.isEmpty || list2.isEmpty) None
     else Some(list ++ list2)
 
+  /*
+  4.5 zwróci listę za pomocą metody mojeMap[A,B,C](a: Option[A], b:
+  Option[B])(f:(A,B)=>C):Option[C]; należy wykorzystać metodę flatMap
+  oraz map
+  */
+
+  @cask.postJson("/mojeMap")
+  def mojeMapRequest(arg1: Option[Int], arg2: Option[Int], f: String) = {
+    val fun : (Int, Int) => Int = f match
+      case "sum" => _ + _
+      case "product" => _ * _
+      case "minus" => _ - _
+      case _ => (a,b) => a - b
+    
+    val result = mojeMap(arg1, arg2)(fun)
+    result match 
+      case Some(x) => ujson.Obj(
+        "Result" -> x
+      )
+      case None => ujson.Obj(
+        "message" -> "None"
+      )
+  }
+
+  def mojeMap[A, B, C](a: Option[A], b: Option[B])(f: (A, B) => C): Option[C] =
+    a.flatMap(x => b.map(y => f(x, y)))
+
+
+    //flatMap spłaszcza Option, zeby w tym wypadku nie bylo zagniezdzonego Option
+
 
 
 
