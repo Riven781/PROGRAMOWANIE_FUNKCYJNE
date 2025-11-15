@@ -1,7 +1,7 @@
 Programowanie funkcyjne
 Repozytorium zawiera projekty i zadania z zajęć Programowanie funkcyjne.
 
-ZADANIE 1  Wprowadzenie do programowania funkcyjnego
+## ZADANIE 1  Wprowadzenie do programowania funkcyjnego
 
 #### ✅  3.0 Zaimplementuj funkcję isSorted, która sprawdza czy dana funkcja jest posortowana zgodnie z podaną funkcją porównawczą https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/a1b1096
 #### ✅  3.5 Zaimplementuj funkcję, która zsumuje liczby po wierszach z trzech list na wejściu; wykorzystaj funkcję sprowadzi funkcję z trzema argumentami, do funkcji z dwoma  https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/7d9d4de
@@ -38,7 +38,7 @@ https://github.com/user-attachments/assets/738a1799-3193-4183-8cb7-c550d74340a6
 https://github.com/user-attachments/assets/d92ddddc-0f07-4182-ba69-22c4ddc7debc
 
 
-ZADANIE 2 Obraz DOCKEROWY
+## ZADANIE 2 Obraz DOCKEROWY
 #### Link do DockerHub:  https://hub.docker.com/r/riven781/fp_task
 #### Link do dokumentu Dockerfile: https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/blob/main/Dockerfile
 
@@ -46,7 +46,7 @@ ZADANIE 2 Obraz DOCKEROWY
 
 https://github.com/user-attachments/assets/ab198e5f-a96f-48c9-a471-a4ddf62152d5
 
-ZADANIE 3
+## ZADANIE 3
 #### ✅ 3.0 zwrócą wynik funkcji tail, która usuwa pierwszy element z listy (parameter); należy rozważyć przypadek Nil jako parametr [Link do commita 3.0](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/8bb9bff)
 #### ✅ 3.5 zwróci wynik funkcji drop, która usuwa n elementów z listy dwukierunkowej [Link do commita 3.5](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/de82db7)
 #### ✅ 4.0 zwróci wynik funkcji dropWhile, która usuwa n elementów z listy dwukierunkowej, które spełniają warunek funkcji (parametr); należy wykorzystać podejście pattern match [Link do commita 4.0](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/c7c6fef)
@@ -79,3 +79,38 @@ https://github.com/user-attachments/assets/b5fd0f9b-ae9d-4fc4-943d-28d761435497
 
 ### 5.0
 https://github.com/user-attachments/assets/cc35be48-e813-405a-adb8-1392493f02d4
+
+
+## ZADANIE 4
+#### ✅ 3.0 zwróci taki sam wynik jak zad.1 4.5 ale wykorzysta typ opcjonalny [Link do commita 3.0](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/f7fa3f20aa7a05dc2ef08cb8202a23ebd711a0eb)
+#### ✅ 3.5 zwroci wariancję z listy; do implementacji wykorzystać należy typ opcjonalny [Link do commita 3.5](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/e5ee3371baa40c6326d67c5472090e51a8917510)
+#### ✅ 4.0 zwróci listę (option), która jest wynikiem połączenia dwóch list (option); w przypadku gdy jedna z list jest None, funkcja powinna zwrócić None [Link do commita 4.0](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/9a3241af79f433579d6b76a3dae32ce55dd8bd23)
+#### ✅ 4.5 zwróci listę za pomocą metody mojeMap[A,B,C](a: Option[A], b: Option[B])(f:(A,B)=>C):Option[C]; należy wykorzystać metodę flatMap oraz map [Link do commita 4.5](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/1b9dcae89a28e71503ba054095be48e21a67664d)
+#### ✅ 5.0 zwróci taki średnią (mean) z listy zwracając Either [Link do commita 5.0](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/fbc87a55c2b9c101f2a837cd5972e8014aa5caa2)
+
+#### Link do kodu z zadania 3 (są w nim endpointy z zadania1, z zadania3 i z zadania 4): https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/blob/main/ZADANIE1/src/main/scala/app/Zadanie1.scala
+
+
+## 🎬 VIDEO
+
+### 3.0
+
+https://github.com/user-attachments/assets/2ab4aba0-70bf-453c-b64a-72e68f86a157
+
+
+
+### 3.5
+
+https://github.com/user-attachments/assets/651bb7d1-5cb9-4872-88f4-9b6fef334f79
+
+### 4.0
+
+
+https://github.com/user-attachments/assets/da22828a-db66-4726-a663-fbb4aeff154c
+### 4.5
+
+
+https://github.com/user-attachments/assets/16711d74-246c-4978-bb4e-33894d19357f
+
+### 5.0
+https://github.com/user-attachments/assets/61627356-e49b-48f3-9def-8b17ca27b2e9
