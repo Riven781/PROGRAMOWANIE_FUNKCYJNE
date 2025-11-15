@@ -287,9 +287,6 @@ object Zadanie1 extends cask.MainRoutes{
 
 
 
-
-    
-
   override def host: String = "0.0.0.0"
   initialize()
 }
