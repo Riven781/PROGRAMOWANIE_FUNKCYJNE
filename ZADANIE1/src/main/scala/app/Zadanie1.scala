@@ -417,6 +417,49 @@ object Zadanie1 extends cask.MainRoutes{
     else Right(list.sum / list.length.toDouble)
 
 
+  /*ZADANIE 5*/
+
+  case class KeyValue[K, V](key: K, value: V)
+
+  trait MapReduce[In, Key, Value, Reduced] {
+    def mapper(input: In): Seq[KeyValue[Key, Value]]
+    def reducer(key: Key, values: Seq[Value]): KeyValue[Key, Reduced]
+  }
+
+  /*
+  3.0 zwróci słownik z liczbą powtarzających się liczb za pomocą funkcji
+  mapreduce dla list z liczbami
+  */
+
+  class NumberCount extends MapReduce[Int, Int, Int, Int] {
+    override def mapper(input: Int): Seq[KeyValue[Int, Int]] = {
+      Seq(KeyValue(input, 1))  //kazde wystapienie mapujemy na 1
+    }
+
+    override def reducer(key: Int, values: Seq[Int]): KeyValue[Int, Int] = {  //key
+      KeyValue(key, values.sum)   
+    }
+  }
+  object MapReduce{
+    def mapReduce[In, Key, Value, Reduced](input: Seq[In], mr: MapReduce[In, Key, Value, Reduced]): Seq[KeyValue[Key, Reduced]] = {
+      val mapped = input.flatMap(mr.mapper)
+      val grouped : Seq[KeyValue[Key, Seq[Value]]] = mapped.groupBy(_.key).map {case (key, keyValuesSeq) => KeyValue(key, keyValuesSeq.map(_.value)) }.toSeq
+      grouped.map(keyValue =>  mr.reducer(keyValue.key, keyValue.value))
+    }
+  }
+
+  @cask.postJson("/numberCount")
+  def NumberCountRequest(list: List[Int]) = {
+    
+    val result = MapReduce.mapReduce(list, new NumberCount())
+    ujson.Obj(
+      "numberCount" -> result.map(kv => ujson.Obj("number" -> kv.key, "count" -> kv.value))
+    )
+  }
+
+
+
+
 
 
 
