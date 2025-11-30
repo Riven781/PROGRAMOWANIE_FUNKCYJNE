@@ -511,6 +511,39 @@ object Zadanie1 extends cask.MainRoutes{
     )
   }
 
+  /*
+  4.5 zwróci słownik (zdanie, wektor), która wykorzysta funkcję
+  mapreduce oraz bagOfWords
+  */
+
+  def bagOfWords(sentence: String): Map[String, Int] = {
+    sentence
+      .toLowerCase
+      .replaceAll("[^a-zA-Z0-9\\s]", "")  //zakladam ze inputy beda bez polskich znakow
+      .split("\\s+")
+      .filter(_.nonEmpty)
+      .groupBy(identity)
+      .map { case (word, arr) => (word, arr.length) }
+  }
+
+  class WordSentenceCounterVector extends MapReduce[String, String, Map[String, Int], Map[String, Int]] {
+    override def mapper(input: String): Seq[KeyValue[String, Map[String, Int]]] = {
+      Seq(KeyValue(input, bagOfWords(input)))
+    }
+    override def reducer(key: String, values: Seq[Map[String, Int]]): KeyValue[String, Map[String, Int]] = {
+      KeyValue(key, values.head)
+    }
+  }
+
+  @cask.postJson("/wordsVector")
+  def WordsVectorRequest(list: List[String]) = {
+    
+    
+    val result = MapReduce.mapReduce(list, new WordSentenceCounterVector())
+    ujson.Obj(
+      "result" -> result.map(kv => ujson.Obj("sentence" -> kv.key, "WordVector" -> kv.value))
+    )
+  }
 
 
 
