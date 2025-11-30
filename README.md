@@ -88,7 +88,7 @@ https://github.com/user-attachments/assets/cc35be48-e813-405a-adb8-1392493f02d4
 #### ✅ 4.5 zwróci listę za pomocą metody mojeMap[A,B,C](a: Option[A], b: Option[B])(f:(A,B)=>C):Option[C]; należy wykorzystać metodę flatMap oraz map [Link do commita 4.5](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/1b9dcae89a28e71503ba054095be48e21a67664d)
 #### ✅ 5.0 zwróci taki średnią (mean) z listy zwracając Either [Link do commita 5.0](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/fbc87a55c2b9c101f2a837cd5972e8014aa5caa2)
 
-#### Link do kodu z zadania 3 (są w nim endpointy z zadania1, z zadania3 i z zadania 4): https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/blob/main/ZADANIE1/src/main/scala/app/Zadanie1.scala
+#### Link do kodu z zadania 4 (są w nim endpointy z zadania1, z zadania3 i z zadania 4): https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/blob/main/ZADANIE1/src/main/scala/app/Zadanie1.scala
 
 
 ## 🎬 VIDEO
@@ -96,7 +96,6 @@ https://github.com/user-attachments/assets/cc35be48-e813-405a-adb8-1392493f02d4
 ### 3.0
 
 https://github.com/user-attachments/assets/2ab4aba0-70bf-453c-b64a-72e68f86a157
-
 
 
 ### 3.5
@@ -114,3 +113,37 @@ https://github.com/user-attachments/assets/16711d74-246c-4978-bb4e-33894d19357f
 
 ### 5.0
 https://github.com/user-attachments/assets/61627356-e49b-48f3-9def-8b17ca27b2e9
+
+## ZADANIE 5
+
+#### ✅ 3.0 zwróci słownik z liczbą powtarzających się liczb za pomocą funkcji mapreduce dla list z liczbami [Link do commita 3.0](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/230349a22449e462a496af9c8440450d86aca060)
+#### ✅ 3.5 zwróci słownik z liczbami podniesionymi do sześcianu za pomocą funkcji mapreduce dla list z liczbami [Link do commita 3.5](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/9a90884ea150e42c1cff91e3081eb1d489eed04a)
+#### ✅ 4.0 zwróci słownik (student, godziny nauki), która wykorzysta funkcją mapreduce oraz groupBy dla słownika na wejściu [Link do commita 4.0](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/2827e002453e79c61a5a5497263debf5ff1343b9)
+#### ✅ 4.5 zwróci słownik (zdanie, wektor), która wykorzysta funkcję mapreduce oraz bagOfWords [Link do commita 4.5](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/c7b6028d5d502ec678e831f1dfce9cd5dd0faa34)
+#### ✅ 5.0 zwróci słownik (student, średnia ocen), która wykorzysta funkcję mapreduce oraz join; na wejściu  są dwie listy: (numer_indeksu, student), (numer_indeksu, kurs, ocena) [Link do commita 5.0](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/c9d257008eaddfc179204c0f6bc39be442ebbdff)
+
+#### Link do kodu z zadania 3 (są w nim endpointy z zadania1, z zadania3 i z zadania 4): https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/blob/main/ZADANIE1/src/main/scala/app/Zadanie1.scala
+
+#### Link do kodu z zadania 5 (są w nim endpointy z zadania1, z zadania3, z zadania 4 i z zadania 5): https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/blob/main/ZADANIE1/src/main/scala/app/Zadanie1.scala
+
+## 🎬 VIDEO
+
+### 3.0
+
+https://github.com/user-attachments/assets/dde7d1db-1e53-42cb-a544-6c5f0f4c7907
+
+### 3.5
+
+https://github.com/user-attachments/assets/29758393-8f16-4b33-93e3-2215bc11cfb9
+
+### 4.0
+
+https://github.com/user-attachments/assets/ead80d97-c141-44be-868e-9f23b04d57b7
+
+### 4.5
+
+https://github.com/user-attachments/assets/ac7dc451-77d4-4a5b-afa6-796cc9973887
+
+### 5.0
+
+https://github.com/user-attachments/assets/337692dd-a0ef-4ef8-b26e-830cc1cc3788
