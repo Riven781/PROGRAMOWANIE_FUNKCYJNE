@@ -481,7 +481,35 @@ object Zadanie1 extends cask.MainRoutes{
     )
   }
 
+  /*
+  4.0  zwróci słownik (student, godziny nauki), która wykorzysta funkcją
+  mapreduce oraz groupBy dla słownika na wejściu
+  */
+  //zakladam ze studenci mają unikalne imiona
+  class StudentStudyHours extends MapReduce[(String, Int), String, Int, Int] {
+    override def mapper(input: (String, Int)): Seq[KeyValue[String, Int]] = {
+      val (student, hours) = input
+      Seq(KeyValue(student, hours))
+    }
 
+    override def reducer(key: String, values: Seq[Int]): KeyValue[String, Int] = {
+      KeyValue(key, values.sum)
+    }
+  }
+
+  @cask.postJson("/studentStudyHours")
+  def StudentStudyHoursRequest(list: Seq[ujson.Obj]) = {
+    val myMap = list.map{ obj =>
+      val student = obj("student").str
+      val hours = obj("hours").num.toInt
+      (student, hours)
+    }
+    
+    val result = MapReduce.mapReduce(myMap, new StudentStudyHours())
+    ujson.Obj(
+      "result" -> result.map(kv => ujson.Obj("student" -> kv.key, "studyHours" -> kv.value))
+    )
+  }
 
 
 
