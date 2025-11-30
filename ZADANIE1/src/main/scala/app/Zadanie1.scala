@@ -457,6 +457,29 @@ object Zadanie1 extends cask.MainRoutes{
     )
   }
 
+  /*
+  3.5 zwróci słownik z liczbami podniesionymi do sześcianu za pomocą
+  funkcji mapreduce dla list z liczbami
+  */
+
+  class NumberPow extends MapReduce[Int, Int, Int, Int] {
+    override def mapper(input: Int): Seq[KeyValue[Int, Int]] = {
+      Seq(KeyValue(input, input))
+    }
+
+    override def reducer(key: Int, values: Seq[Int]): KeyValue[Int, Int] = {  //key
+      KeyValue(key, key * key * key) //inna opcja to values.head * values.head * values.head
+    }
+  }
+
+  @cask.postJson("/numberPow")
+  def NumberPowRequest(list: List[Int]) = {
+    
+    val result = MapReduce.mapReduce(list, new NumberPow())
+    ujson.Obj(
+      "numberPow" -> result.map(kv => ujson.Obj("number" -> kv.key, "numberPow(3)" -> kv.value))
+    )
+  }
 
 
 
