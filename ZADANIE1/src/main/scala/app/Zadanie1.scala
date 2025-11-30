@@ -545,6 +545,50 @@ object Zadanie1 extends cask.MainRoutes{
     )
   }
 
+  /*
+  5.0 zwróci słownik (student, średnia ocen), która wykorzysta funkcję
+  mapreduce oraz join; na wejściu  są dwie listy: (numer_indeksu,
+  student), (numer_indeksu, kurs, ocena)
+  */
+
+  //zwracam (Nr indeksu, Nazwa studenta) jako Key i średnia ocen jako Value (nr indeksu jest w key poniewaz moze byc kilku studentow o tym samym imieniu)
+  //ewentualnie mozna bylo jako Key przyjąć numer indeksu a w Value trzymać (Nazwa studenta, średnia ocen), wybrałem jednak wariant pierwszy
+  //ponieważ w reducer otrzymałbym jako values Seq[(String, Double)] i uznałem że niepotrzebnnie imie studenta ma sie powtarzac tam wiele razy (podczas grupowania np.
+  // indeks 1 -> [("Paul", 4.5), ("Paul", 5.0)], a tak bedzie tylko raz w key  (1, "Paul") -> [4.5, 5.0] )
+
+  class StudentAverageGrades extends MapReduce[(Int, String, Double), (Int, String),  Double,  Double] {
+    override def mapper(input: (Int, String, Double)): Seq[KeyValue[(Int ,String), Double]] = {
+      val (index, name, grade) = input
+      Seq(KeyValue((index, name),  grade))
+    }
+
+    override def reducer(key: (Int, String), values: Seq[ Double]): KeyValue[(Int, String), Double] = {
+      KeyValue(key, values.sum.toDouble / values.length)
+    }
+  }
+
+  def join(list1: List[(Int, String)], list2: List[(Int, String, Double)]): List[(Int, String, Double)] = {
+    list1.flatMap{ case (index, student) =>
+      list2.collect {
+        case (idx, _, grade) if idx == index => (index, student, grade)
+      }
+    }
+  }
+  @cask.postJson("/studentAverageGrades")
+  def StudentAverageGradesRequest(list1: List[(Int, String)], list2: List[(Int, String, Double)]) = {
+
+    val joinedList = join(list1, list2)
+
+    //joinedList.foreach(println)
+
+    val result = MapReduce.mapReduce(joinedList, new StudentAverageGrades())
+    
+    
+    ujson.Obj(
+      "result" -> result.map(kv => ujson.Obj("name" -> kv.key._2, "average" -> kv.value))
+    )
+  }
+
 
 
 
