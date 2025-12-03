@@ -57,6 +57,12 @@ instance FromJSON AppendData
 append :: [Int] -> Int -> Int -> [Int]
 append listOrg idx newVal =  take idx listOrg ++ [newVal] ++ drop idx listOrg
 
+data Pow2Data = Pow2Data {list_1 :: [Int], list_2 :: [Int] } deriving (Show, Generic)
+instance FromJSON Pow2Data
+
+pow2 :: [Int] -> [Int] -> [Int]
+pow2 list__1 list__2 = concatMap (\(x, y) -> [x*x, y*y] ) $ zip list__1 list__2
+
 
 main :: IO ()
 main = scotty 8080 $ do
@@ -97,6 +103,14 @@ main = scotty 8080 $ do
     let newValue_ = newValue appendData
     let resultAppend = append listD_ index_ newValue_
     json $ SumResponse resultAppend
+
+  --zad 5.0
+  post "/pow2" $ do
+    pow2Data <- jsonData :: ActionM Pow2Data
+    let list_1_ = list_1 pow2Data
+    let list_2_ = list_2 pow2Data
+    let resultPow2 = pow2 list_1_ list_2_
+    json $ SumResponse resultPow2
 
 
 
