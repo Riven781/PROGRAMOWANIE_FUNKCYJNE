@@ -51,6 +51,11 @@ instance FromJSON SetHeadData
 setHead :: [a] -> a -> [a]
 setHead listData_ newHeadValue_ = newHeadValue_ : listData_
 
+data AppendData = AppendData { listD :: [Int],  index :: Int, newValue :: Int} deriving (Show, Generic)
+instance FromJSON AppendData
+
+append :: [Int] -> Int -> Int -> [Int]
+append listOrg idx newVal =  take idx listOrg ++ [newVal] ++ drop idx listOrg
 
 
 main :: IO ()
@@ -83,4 +88,15 @@ main = scotty 8080 $ do
     let value_ = newHeadValue setHeadData
     let resultSetHead = setHead list_ value_
     json $ SumResponse resultSetHead
+
+  --zad 4.5
+  post "/append" $ do
+    appendData <- jsonData :: ActionM AppendData
+    let listD_ = listD appendData
+    let index_ = index appendData
+    let newValue_ = newValue appendData
+    let resultAppend = append listD_ index_ newValue_
+    json $ SumResponse resultAppend
+
+
 
