@@ -147,3 +147,35 @@ https://github.com/user-attachments/assets/ac7dc451-77d4-4a5b-afa6-796cc9973887
 ### 5.0
 
 https://github.com/user-attachments/assets/337692dd-a0ef-4ef8-b26e-830cc1cc3788
+
+
+## ZADANIE 6
+#### ✅  3.0 Zaimplementuj funkcję isSorted, która sprawdza czy dana funkcja jest posortowana zgodnie z podaną funkcją porównawczą [Link do commita 3.0](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/8da4dcb291c395325a180e7d3dc082767836e58c)
+#### ✅  3.5 Zaimplementuj funkcję, która zsumuje liczby po wierszach z trzech list na wejściu; wykorzystaj funkcję sprowadzi funkcję z trzema argumentami, do funkcji z dwoma  [Link do commita 3.5](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/7791cad8594020e0e7d51f8e497149a4a7652a03)
+#### ✅  4.0 Zaimplementuj funkcję setHead, która doda element na początku listy [Link do commita 4.0](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/def9f067f56a7cbfeaf1ee9bae1e2eace7f7a539)
+#### ✅  4.5 Zaimplementuj funkcję append, która doda element we wskazanym miejscu w liście  [Link do commita 4.5](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/89b266f2f2112120af9f4d5562e226b2cf4f1bbc)
+#### ✅  5.0 Zaimplementuj funkcję, która policzy kwadrat liczb z dwóch list (po wierszach) za pomocą funkcji map oraz funkcji anonimowej [Link do commita 5.0](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/5c6807cb577ac565ce715a8bd53071c6dce79100)
+
+# Link do kodu z zadania 6:  https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/blob/main/ZADANIE6/app/Main.hs
+
+## 🎬 VIDEO
+
+### 3.0
+
+https://github.com/user-attachments/assets/a29d0d8b-e598-49b3-85bd-f9db54d60464
+
+### 3.5
+
+https://github.com/user-attachments/assets/138f5138-6f19-49ac-b2c5-8ae222915e1f
+
+### 4.0
+
+https://github.com/user-attachments/assets/f4c995a1-89ac-4804-9e83-b51a935395a7
+
+### 4.5
+
+https://github.com/user-attachments/assets/1bf47411-b7fb-46b3-a909-f51cad1e2f74
+
+### 5.0
+
+https://github.com/user-attachments/assets/8203d7b5-2125-41e6-93fa-79afe232ed57
