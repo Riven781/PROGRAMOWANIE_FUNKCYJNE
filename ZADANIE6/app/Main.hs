@@ -45,6 +45,13 @@ sumLists _ _ _ = []
 data SumResponse = SumResponse { resultList :: [Int] } deriving (Show, Generic)
 instance ToJSON SumResponse
 
+data SetHeadData = SetHeadData { listData :: [Int], newHeadValue :: Int } deriving (Show, Generic)
+instance FromJSON SetHeadData
+
+setHead :: [a] -> a -> [a]
+setHead listData_ newHeadValue_ = newHeadValue_ : listData_
+
+
 
 main :: IO ()
 main = scotty 8080 $ do
@@ -68,4 +75,12 @@ main = scotty 8080 $ do
     let list3_ = list3 sumData
     let resultSum = sumLists list1_ list2_ list3_
     json $ SumResponse resultSum
+
+  --zad 4.0
+  post "/setHead" $ do
+    setHeadData <- jsonData :: ActionM SetHeadData
+    let list_ = listData setHeadData
+    let value_ = newHeadValue setHeadData
+    let resultSetHead = setHead list_ value_
+    json $ SumResponse resultSetHead
 
