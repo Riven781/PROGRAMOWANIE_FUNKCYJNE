@@ -156,7 +156,7 @@ https://github.com/user-attachments/assets/337692dd-a0ef-4ef8-b26e-830cc1cc3788
 #### ✅  4.5 Zaimplementuj funkcję append, która doda element we wskazanym miejscu w liście  [Link do commita 4.5](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/89b266f2f2112120af9f4d5562e226b2cf4f1bbc)
 #### ✅  5.0 Zaimplementuj funkcję, która policzy kwadrat liczb z dwóch list (po wierszach) za pomocą funkcji map oraz funkcji anonimowej [Link do commita 5.0](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/5c6807cb577ac565ce715a8bd53071c6dce79100)
 
-# Link do kodu z zadania 6:  https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/blob/main/ZADANIE6/app/Main.hs
+#### Link do kodu z zadania 6:  https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/blob/main/ZADANIE6/app/Main.hs
 
 ## 🎬 VIDEO
 
