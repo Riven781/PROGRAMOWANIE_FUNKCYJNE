@@ -4,6 +4,8 @@ module Main where
 import Web.Scotty
 import Data.Aeson (ToJSON, FromJSON)
 import GHC.Generics (Generic)
+import System.Random (StdGen, randomR, getStdGen)
+import Control.Concurrent (newMVar, putMVar, takeMVar)
 
 
 
@@ -64,53 +66,76 @@ pow2 :: [Int] -> [Int] -> [Int]
 pow2 list__1 list__2 = concatMap (\(x, y) -> [x*x, y*y] ) $ zip list__1 list__2
 
 
+randInt :: StdGen -> (Int, StdGen)
+randInt gen = randomR (1, maxBound::Int) gen
+
+data RandResponse = RandResponse { intVal :: Int} deriving (Show, Generic)
+instance ToJSON RandResponse
+
+
 main :: IO ()
-main = scotty 8080 $ do
-  get "/" $ text "Hello from Scotty inside Docker!"
+main = do 
+  gen <- getStdGen
+  genVar <- newMVar gen
+  scotty 8080 $ do
+    get "/" $ text "Hello from Scotty inside Docker!"
 
-  --zad 3.0
-  post "/isSorted" $ do
-    isSortedData <- jsonData :: ActionM IsSortedData
-    let list_ = list isSortedData
-    let f_str = fun isSortedData
-    let f = chooseFunction f_str
 
-    let resultSorted  = isSorted list_ f
-    json $ IsSortedResponse resultSorted 
+    --zad 3.0
+    post "/isSorted" $ do
+      isSortedData <- jsonData :: ActionM IsSortedData
+      let list_ = list isSortedData
+      let f_str = fun isSortedData
+      let f = chooseFunction f_str
 
-  --zad 3.5
-  post "/sum" $ do
-    sumData <- jsonData :: ActionM SumData
-    let list1_ = list1 sumData
-    let list2_ = list2 sumData
-    let list3_ = list3 sumData
-    let resultSum = sumLists list1_ list2_ list3_
-    json $ SumResponse resultSum
+      let resultSorted  = isSorted list_ f
+      json $ IsSortedResponse resultSorted 
 
-  --zad 4.0
-  post "/setHead" $ do
-    setHeadData <- jsonData :: ActionM SetHeadData
-    let list_ = listData setHeadData
-    let value_ = newHeadValue setHeadData
-    let resultSetHead = setHead list_ value_
-    json $ SumResponse resultSetHead
+    --zad 3.5
+    post "/sum" $ do
+      sumData <- jsonData :: ActionM SumData
+      let list1_ = list1 sumData
+      let list2_ = list2 sumData
+      let list3_ = list3 sumData
+      let resultSum = sumLists list1_ list2_ list3_
+      json $ SumResponse resultSum
 
-  --zad 4.5
-  post "/append" $ do
-    appendData <- jsonData :: ActionM AppendData
-    let listD_ = listD appendData
-    let index_ = index appendData
-    let newValue_ = newValue appendData
-    let resultAppend = append listD_ index_ newValue_
-    json $ SumResponse resultAppend
+    --zad 4.0
+    post "/setHead" $ do
+      setHeadData <- jsonData :: ActionM SetHeadData
+      let list_ = listData setHeadData
+      let value_ = newHeadValue setHeadData
+      let resultSetHead = setHead list_ value_
+      json $ SumResponse resultSetHead
 
-  --zad 5.0
-  post "/pow2" $ do
-    pow2Data <- jsonData :: ActionM Pow2Data
-    let list_1_ = list_1 pow2Data
-    let list_2_ = list_2 pow2Data
-    let resultPow2 = pow2 list_1_ list_2_
-    json $ SumResponse resultPow2
+    --zad 4.5
+    post "/append" $ do
+      appendData <- jsonData :: ActionM AppendData
+      let listD_ = listD appendData
+      let index_ = index appendData
+      let newValue_ = newValue appendData
+      let resultAppend = append listD_ index_ newValue_
+      json $ SumResponse resultAppend
+
+    --zad 5.0
+    post "/pow2" $ do
+      pow2Data <- jsonData :: ActionM Pow2Data
+      let list_1_ = list_1 pow2Data
+      let list_2_ = list_2 pow2Data
+      let resultPow2 = pow2 list_1_ list_2_
+      json $ SumResponse resultPow2
+
+
+    --ZADANIE 7
+
+    --zad3.0
+    post "/randInt" $ do
+      genOld <- liftIO $ takeMVar genVar
+      let (intVal_, gen_) = randInt genOld
+      liftIO  $ putMVar genVar gen_
+
+      json $ RandResponse intVal_ 
+      
 
 
 
