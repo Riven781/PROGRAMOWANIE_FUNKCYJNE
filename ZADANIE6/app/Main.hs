@@ -72,6 +72,14 @@ randInt gen = randomR (1, maxBound::Int) gen
 data RandResponse = RandResponse { intVal :: Int} deriving (Show, Generic)
 instance ToJSON RandResponse
 
+randDouble :: StdGen -> (Double, StdGen)
+randDouble gen = 
+  let (doubleVal__, gen2) = randomR (0.0, 1.0) gen
+  in if doubleVal__ == 1.0 then randDouble gen2 else (doubleVal__, gen2)
+
+data RandDoubleResponse = RandDoubleResponse { doubleVal :: Double} deriving (Show, Generic)
+instance ToJSON RandDoubleResponse
+
 
 main :: IO ()
 main = do 
@@ -129,12 +137,18 @@ main = do
     --ZADANIE 7
 
     --zad3.0
-    post "/randInt" $ do
+    get "/randInt" $ do
       genOld <- liftIO $ takeMVar genVar
       let (intVal_, gen_) = randInt genOld
       liftIO  $ putMVar genVar gen_
-
       json $ RandResponse intVal_ 
+
+    --zad3.5
+    get "/randDouble" $ do
+      genOld <- liftIO $ takeMVar genVar
+      let (doubleVal_, gen_) = randDouble genOld
+      liftIO  $ putMVar genVar gen_
+      json $ RandDoubleResponse doubleVal_ 
       
 
 
