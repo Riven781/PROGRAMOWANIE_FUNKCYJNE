@@ -124,6 +124,17 @@ instance FromJSON ConcatenationData
 concatenate :: [Int] -> [Int] -> [Int] -> [Int]
 concatenate list1_ list2_ list3_ = list1_ <> list2_ <> list3_
 
+data MonadData = MonadData { intList :: Maybe [Int] } deriving (Show, Generic)
+instance FromJSON MonadData
+
+--zwraca sume, a przyjmuje dotychczasową sumę i nowy element
+sumL :: [Int] -> Maybe Int
+sumL iList = if iList == [] then Nothing else Just (sum iList)
+
+
+data MonadResponse = MonadResponse { sumInrResult :: Maybe Int } deriving (Show, Generic)
+instance ToJSON MonadResponse
+
 
 main :: IO ()
 main = do 
@@ -222,4 +233,11 @@ main = do
       let list3_ = list_3__ concatenateData
       let resultConcatenate = concatenate list1_ list2_ list3_
       json $ SumResponse resultConcatenate
+
+    --zad4.0
+    post "/monad" $ do
+      monadData <- jsonData :: ActionM MonadData
+      let iList_ = intList monadData
+      let resultMonad =  iList_ >>= sumL
+      json $ MonadResponse resultMonad
 
