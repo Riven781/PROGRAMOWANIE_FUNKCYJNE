@@ -204,3 +204,34 @@ https://github.com/user-attachments/assets/e71f0d14-c72c-4b3c-bcaf-61fade1a9ddd
 ### 4.0
 
 https://github.com/user-attachments/assets/720551e7-934f-4847-b2a9-791fb1b1ef6c
+
+
+## Zadanie 8 Monoidy, monady, funktory
+
+Należy zaimplementować w Haskellu endpointy, które: 
+#### ✅ 3.0 wykorzysta metodę map fuktora do wykonania funkcji dodawania lub odejmowania na dwóch wartość przyjętych na wejściu [Link do commita 3.0](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/842b9ae4497317efcd61243e84941b4617b9bd12)
+#### ✅ 3.5 zwróci wartość konkatenacji trzech list za pomocą monoidy [Link do commita 3.5](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/b66c7cddf9529baa25e74b78ea3282e531d074b0)
+#### ✅ 4.0 zwróci wartość sumy listy liczb lub zwróci nil; zaimplementuj wykorzystując monady [Link do commita 4.0](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/6c7c83a059037f1437ce5002caaecf9a032fb4c6)
+#### ✅ 4.5 zwróci zadanie z zestawy 6 na ocenę 4.0 i wykorzysta metodę combine oraz join [Link do commita 4.5](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/c8d15e024a159234277a1b492347362c4eeec5f4)
+#### ❌ 5.0 zwróci dla listy minimum 3 elementów typu int mapę: liczba elementów, suma,  wartość minimalna, wartość maksymalna; wykorzysta do tego monadę oraz metodę foldMap
+
+#### Link do kodu z zadania 8 (jest tam również zadanie 6 i 7):  https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/blob/main/ZADANIE6/app/Main.hs
+
+## 🎬 VIDEO
+
+### 3.0
+
+https://github.com/user-attachments/assets/05868ebf-1e74-4ef7-8a6c-72dbfff2d069
+
+### 3.5
+
+https://github.com/user-attachments/assets/b7f8b917-0d45-4559-8e72-3cc85f568a48
+
+
+### 4.0
+
+https://github.com/user-attachments/assets/67bfbeb4-6f74-46ac-bc27-4d2616eda0df
+
+### 4.5
+
+https://github.com/user-attachments/assets/eea3b845-2b89-470e-b022-ec4d6791e390
