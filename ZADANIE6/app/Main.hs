@@ -6,6 +6,7 @@ import Data.Aeson (ToJSON, FromJSON)
 import GHC.Generics (Generic)
 import System.Random (StdGen, randomR, getStdGen)
 import Control.Concurrent (newMVar, putMVar, takeMVar)
+import Control.Monad (join)
 
 
 
@@ -127,13 +128,20 @@ concatenate list1_ list2_ list3_ = list1_ <> list2_ <> list3_
 data MonadData = MonadData { intList :: Maybe [Int] } deriving (Show, Generic)
 instance FromJSON MonadData
 
---zwraca sume, a przyjmuje dotychczasową sumę i nowy element
+--komentarz który był w poprzednim commit tu, nie był do tej funkcji
 sumL :: [Int] -> Maybe Int
 sumL iList = if iList == [] then Nothing else Just (sum iList)
 
 
 data MonadResponse = MonadResponse { sumInrResult :: Maybe Int } deriving (Show, Generic)
 instance ToJSON MonadResponse
+
+combine :: [a] -> [a] -> [a]
+combine _list1_ _list2_ = _list1_ <> _list2_
+
+setHead2:: [Int] -> Int -> [Int]
+setHead2 _list_ newVal = join (combine [[newVal]] [_list_])
+
 
 
 main :: IO ()
@@ -241,3 +249,10 @@ main = do
       let resultMonad =  iList_ >>= sumL
       json $ MonadResponse resultMonad
 
+    --zad4.5
+    post "/setHead2" $ do
+      setHeadData <- jsonData :: ActionM SetHeadData
+      let list_ = listData setHeadData
+      let value_ = newHeadValue setHeadData
+      let resultSetHead = setHead2 list_ value_
+      json $ SumResponse resultSetHead
