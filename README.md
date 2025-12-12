@@ -179,3 +179,28 @@ https://github.com/user-attachments/assets/1bf47411-b7fb-46b3-a909-f51cad1e2f74
 ### 5.0
 
 https://github.com/user-attachments/assets/8203d7b5-2125-41e6-93fa-79afe232ed57
+
+## ZADANIE 7 Maszyna stanów
+Należy zaimplementować w Haskellu endpointy, które:
+#### ✅ 3.0 zwróci wartość między 0, a maxvalue of Int włącznie [Link do commita 3.0](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/ee2b102ea36cb26892d6e28160b23d6a4b2e3861)
+#### ✅ 3.5 zwróci wartość między 0, a 1 (Double) z wyłączeniem 1 [Link do commita 3.5](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/b7781444fdeb3565f45db046d538ddd3cbaf5a14)
+#### ✅ 4.0 zwróci pary (Int, Double), (Double, Int) oraz krotki (Double, Double, Double) wykorzystując funkcje z ocen 3.0 oraz 3.5 [Link do commita 4.0](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/0772eba120a7f9aa19adb964330574d3d46ecc8e)
+#### ❌ 4.5 zwróci wartość jak w funkcji 3.5, ale wykorzysta map
+#### ❌ 5.0 zwróci wartość jak w funkcji 3.5, ale wykorzysta flatMap
+
+#### Link do kodu z zadania 7 (jest tam również zadanie 6):  https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/blob/main/ZADANIE6/app/Main.hs
+
+## 🎬 VIDEO
+
+### 3.0
+
+https://github.com/user-attachments/assets/4a8c129e-ebf1-42bc-9522-5b23d4b3b251
+
+
+### 3.5
+
+https://github.com/user-attachments/assets/e71f0d14-c72c-4b3c-bcaf-61fade1a9ddd
+
+### 4.0
+
+https://github.com/user-attachments/assets/720551e7-934f-4847-b2a9-791fb1b1ef6c
