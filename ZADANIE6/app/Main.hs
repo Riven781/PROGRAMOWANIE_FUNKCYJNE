@@ -118,6 +118,12 @@ addOrSubtract pair operation  = if operation == "add" then fmap addPair pair els
 data FmapResponse = FmapResponse { operationResult :: Maybe Int } deriving (Show, Generic)
 instance ToJSON FmapResponse
 
+data ConcatenationData = ConcatenationData { list_1__ :: [Int], list_2__ :: [Int], list_3__ :: [Int] } deriving (Show, Generic)
+instance FromJSON ConcatenationData
+
+concatenate :: [Int] -> [Int] -> [Int] -> [Int]
+concatenate list1_ list2_ list3_ = list1_ <> list2_ <> list3_
+
 
 main :: IO ()
 main = do 
@@ -206,4 +212,14 @@ main = do
       let operation_ = op fmapData
       let result = addOrSubtract  pair_ operation_
       json $ FmapResponse result
+
+
+    --zad3.5
+    post "/concatenate" $ do
+      concatenateData <- jsonData :: ActionM ConcatenationData
+      let list1_ = list_1__ concatenateData
+      let list2_ = list_2__ concatenateData
+      let list3_ = list_3__ concatenateData
+      let resultConcatenate = concatenate list1_ list2_ list3_
+      json $ SumResponse resultConcatenate
 
