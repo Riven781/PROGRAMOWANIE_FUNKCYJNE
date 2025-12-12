@@ -103,6 +103,21 @@ randTuple gen =
       (doubleVal3, gen4) = randDouble gen3
   in ((doubleVal1, doubleVal2, doubleVal3), gen4)
 
+data FmapData = FmapData { values :: Maybe (Int, Int), op :: String } deriving (Show, Generic)
+instance FromJSON FmapData
+
+addPair:: (Int, Int) -> Int
+addPair (x, y) = (x + y)
+
+subtractPair:: (Int, Int) -> Int
+subtractPair (x, y) = (x - y)
+
+addOrSubtract :: Maybe (Int, Int) -> String -> Maybe Int
+addOrSubtract pair operation  = if operation == "add" then fmap addPair pair else fmap subtractPair pair
+
+data FmapResponse = FmapResponse { operationResult :: Maybe Int } deriving (Show, Generic)
+instance ToJSON FmapResponse
+
 
 main :: IO ()
 main = do 
@@ -181,4 +196,14 @@ main = do
       let (tuple3, gen_3) = randTuple gen_2
       liftIO  $ putMVar genVar gen_3
       json $ RandPairsResponse intDoublePair doubleIntPair tuple3
+
+  --ZADANIE 8
+
+    --zad3.0
+    post "/fmapTask" $ do
+      fmapData <- jsonData :: ActionM FmapData
+      let pair_ = values fmapData
+      let operation_ = op fmapData
+      let result = addOrSubtract  pair_ operation_
+      json $ FmapResponse result
 
