@@ -81,6 +81,29 @@ data RandDoubleResponse = RandDoubleResponse { doubleVal :: Double} deriving (Sh
 instance ToJSON RandDoubleResponse
 
 
+data RandPairsResponse = RandPairsResponse { pair1 :: (Int, Double), pair2 :: (Double, Int), tuple3 :: (Double, Double, Double) } deriving (Show, Generic)
+instance ToJSON RandPairsResponse
+
+randDoubleIntPair :: StdGen -> ((Double, Int), StdGen)
+randDoubleIntPair gen =
+  let (doubleVal, gen2) = randDouble gen
+      (intVal, gen3) = randInt gen2
+  in ((doubleVal, intVal), gen3)
+
+randIntDoublePair :: StdGen -> ((Int, Double), StdGen)
+randIntDoublePair gen =
+  let (intVal, gen2) = randInt gen
+      (doubleVal, gen3) = randDouble gen2
+  in ((intVal, doubleVal), gen3)
+
+randTuple :: StdGen -> ((Double, Double, Double), StdGen)
+randTuple gen =
+  let (doubleVal1, gen2) = randDouble gen
+      (doubleVal2, gen3) = randDouble gen2
+      (doubleVal3, gen4) = randDouble gen3
+  in ((doubleVal1, doubleVal2, doubleVal3), gen4)
+
+
 main :: IO ()
 main = do 
   gen <- getStdGen
@@ -149,7 +172,13 @@ main = do
       let (doubleVal_, gen_) = randDouble genOld
       liftIO  $ putMVar genVar gen_
       json $ RandDoubleResponse doubleVal_ 
-      
 
-
+    --zad4.0
+    get "/randPairs" $ do
+      genOld <- liftIO $ takeMVar genVar
+      let (doubleIntPair, gen_) = randDoubleIntPair genOld
+      let (intDoublePair, gen_2) = randIntDoublePair gen_
+      let (tuple3, gen_3) = randTuple gen_2
+      liftIO  $ putMVar genVar gen_3
+      json $ RandPairsResponse intDoublePair doubleIntPair tuple3
 
