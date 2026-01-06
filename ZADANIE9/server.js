@@ -62,6 +62,40 @@ app.post('/sortList', (req, res) => {
 });
 
 
+
+/*
+4.0 zwróci wynik funkcji z zad. 5 na 4.0 (mapreduce); wykorzysta
+worker_threads
+*/
+
+
+function runWorker(data){
+  return new Promise((res, rej) => {
+    const worker = new Worker('./worker.js', {workerData: data});
+    worker.on('message', (result) => {
+      res(result)
+    });
+    worker.on('error', (err) => {
+      rej(err)
+    });
+    worker.on('exit', (code) => {
+      if (code !== 0){
+        rej(new Error(`Worker stopped with exit code ${code}`))
+      }
+    })
+  })
+}
+
+
+app.post('/mapReduce', (req, res) => {
+  const {data} = req.body;
+  runWorker(data).then(result => {
+    res.json({result: result})}).catch(err => {
+      res.json({error: err.message})
+    });
+});
+
+
 app.listen(3000, () => {
   console.log('Server is running on port 3000');
 });
