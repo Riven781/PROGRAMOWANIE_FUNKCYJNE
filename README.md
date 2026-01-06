@@ -235,3 +235,32 @@ https://github.com/user-attachments/assets/67bfbeb4-6f74-46ac-bc27-4d2616eda0df
 ### 4.5
 
 https://github.com/user-attachments/assets/eea3b845-2b89-470e-b022-ec4d6791e390
+
+
+## Zadanie 9 Wątki
+
+Należy zaimplementowaś w j. JavaScript endpointy, które:
+#### ✅ 3.0 zwróci wartość binarną czy podana na wejściu liczba jest liczbą pierwszą; wykorzysta Promise [Link do commita 3.0](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/40d9312c124fed4e6a0fb0bb24ddad8d62e8ec56)
+#### ✅ 3.5  zwróci posortowaną listę; wykorzysta Promise [Link do commita 3.5](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/249558e0ac4272abcb9eed77d1dfe6a124f5c0be)
+#### ✅ 4.0 zwróci wynik funkcji z zad. 5 na 4.0 (mapreduce); wykorzysta worker_threads [Link do commita 4.0](https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/commit/424586f8d66070f343c278cdc105d4d8dd517578)
+#### ❌ 4.5  zwróci wynik bagOfWords dla danego tekstu na wejściu; stworzy pulę workterów
+#### ❌ 5.0 zwróci wynik funkcji z zad. 5 na 4.5; wykorzysta Promise.all oraz funkcję map
+
+#### Link do kodu z zadania 9:  https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/blob/main/ZADANIE9/server.js
+
+## 🎬 VIDEO
+
+### 3.0
+
+https://github.com/user-attachments/assets/16997581-07ed-4cba-8ad1-546ed79fe9a9
+
+### 3.5
+
+
+https://github.com/user-attachments/assets/e6a74551-5985-4dca-bf84-51039afb9128
+
+
+### 4.0
+
+https://github.com/user-attachments/assets/4c96f700-056f-4cc3-8d96-11ab8f2e9683
+
