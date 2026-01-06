@@ -38,7 +38,28 @@ app.post('/isPrime', (req, res) => {
 });
 
 
+/*
+3.5  zwróci posortowaną listę; wykorzysta Promise
+*/ 
 
+
+function sortList(list){
+  return new Promise((res, rej) => {
+    if (!Array.isArray(list)){
+      rej('Argument is not an array')
+    }
+    const sortedList = [...list].sort((a, b) => a - b)
+    res(sortedList)
+  })
+}
+
+app.post('/sortList', (req, res) => {
+  const {list} = req.body;
+  sortList(list).then(result => {
+    res.json({result: result})}).catch(err => {
+      res.json({error: err})
+    });
+});
 
 
 app.listen(3000, () => {
