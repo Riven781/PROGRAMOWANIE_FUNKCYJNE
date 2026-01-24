@@ -264,3 +264,21 @@ https://github.com/user-attachments/assets/e6a74551-5985-4dca-bf84-51039afb9128
 
 https://github.com/user-attachments/assets/4c96f700-056f-4cc3-8d96-11ab8f2e9683
 
+
+
+## Zadanie 10 Funkcje w chmurze
+
+#### ✅ Przygotuj 3 wybrane funkcje w JS oraz udostępnij w ramach usługi Azure Functions
+#### ✅ Przygotuj 3 wybrane funkcje w Haskellu w ramach Azure App Services. Wykorzystaj obraz dockerowy.
+
+W folderze Zadanie 10 znajduje się aplikacja (z 3 funkcjami w Haskellu) wraz z obrazem Dockerowym: https://github.com/Riven781/PROGRAMOWANIE_FUNKCYJNE/tree/main/ZADANIE10/app
+
+## 🎬 VIDEO
+
+### 3 wybrane funkcje w JS oraz udostępnione w ramach usługi Azure Functions:
+
+https://github.com/user-attachments/assets/96328be2-01a1-4b35-ae8b-1934a508684a
+
+### 3 wybrane funkcje w Haskellu w ramach Azure App Services, wykorzystując obraz dockerowy.
+
+https://github.com/user-attachments/assets/1f781a9c-4372-4a2f-adf1-882dbdd14aa5
